@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TypeTasks | Modern Task Tracking</title>
+  <meta name="description" content="Type-safe, elegant task management application built with TypeScript and modern web standards." />
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="app-header">
+      <div class="logo-group">
+        <div class="logo-icon">✓</div>
+        <div>
+          <h1>TypeTasks</h1>
+          <p class="subtitle">Strictly typed task manager</p>
+        </div>
+      </div>
+      <div class="stats-pill" id="total-stats" aria-live="polite">
+        <span id="completed-count">0</span>/<span id="total-count">0</span> done
+      </div>
+    </header>
+
+    <section class="add-section" aria-label="Add new task">
+      <div class="addrow">
+        <div class="input-wrapper">
+          <input
+            id="title"
+            type="text"
+            placeholder="What needs to be done?"
+            autocomplete="off"
+            aria-label="New task title"
+          />
+        </div>
+        <button id="add" type="button" aria-label="Add Task">
+          <span class="btn-icon">+</span>
+          <span class="btn-text">Add Task</span>
+        </button>
+      </div>
+    </section>
+
+    <nav id="chips" class="filter-row" aria-label="Filter tasks by status">
+      <button class="chip active" data-filter="all" type="button">
+        All <span class="chip-count" id="count-all">0</span>
+      </button>
+      <button class="chip" data-filter="todo" type="button">
+        To Do <span class="chip-count" id="count-todo">0</span>
+      </button>
+      <button class="chip" data-filter="in-progress" type="button">
+        In Progress <span class="chip-count" id="count-in-progress">0</span>
+      </button>
+      <button class="chip" data-filter="done" type="button">
+        Done <span class="chip-count" id="count-done">0</span>
+      </button>
+    </nav>
+
+    <section class="tasks-container" aria-label="Task list">
+      <ul id="list" role="list"></ul>
+      <div id="empty-state" class="empty-state hidden" aria-live="polite">
+        <div class="empty-icon">📋</div>
+        <h3>No tasks here</h3>
+        <p id="empty-desc">Add a new task above to get started.</p>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
